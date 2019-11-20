@@ -11,6 +11,12 @@ import { Storage } from '@ionic/storage';
 
 
 export class OrderFormPage implements OnInit {
+  roomnumber: string = "";
+  email: string = "";
+  date: string = "";
+  time: string = "";
+  currentdorm: string = "";
+  
 
   constructor(public storage: Storage) { 
   }
@@ -50,4 +56,25 @@ export class OrderFormPage implements OnInit {
           this.dorms[key].maketransparent = "true";
       }
     }
+  public currentSelectedDorm(): string {
+    for(let key in this.dorms) {
+      if(this.dorms[key].maketransparent === "false") {
+        this.currentdorm = this.dorms[key].name;
+        return this.currentdorm;
+      }
+    }
   }
+
+    public onSubmit() {
+      console.log(this.date);
+      console.log(this.time);
+      console.log(this.email);
+      console.log(this.roomnumber);
+      console.log("Thanks for submitting your info!");
+      console.log(this.currentSelectedDorm());
+      //now I need to move this all into an "order" object and from there send it thru an api to AWS!
+      // this function should also navigate to a confirmation page displaying details and also providing them with a venmo transaction ID 
+    }
+  }
+
+

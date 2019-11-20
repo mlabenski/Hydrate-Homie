@@ -28,10 +28,10 @@
 <div class="container">
     <h2 style="text-align: center; color: #38B6FF;"> <ion-icon name="alarm"></ion-icon>Delivery Info</h2>
   <ion-item>
-      <ion-label>Dorm #</ion-label>
-      <ion-input type="text" name="title"></ion-input>
+      <ion-label>Room #</ion-label>
+      <ion-input type="text" [(ngModel)]="roomnumber" name="roomnumber"></ion-input>
       <ion-label>YCP Email</ion-label>
-      <ion-input type="text" name="title"></ion-input>
+      <ion-input type="text" [(ngModel)]="email" name="email"></ion-input>
   </ion-item>
 
       <h2 style="text-align: center; color: #38B6FF;"> <ion-icon name="alarm"></ion-icon>Best Time to Deliver</h2>
@@ -39,11 +39,11 @@
 
     <ion-item style="background-color: rgb(168, 155, 155)">
         <ion-label>Date</ion-label>
-        <ion-datetime display-format="DD MMM YYYY" min="2019-11-19" max="2020-01-30" ></ion-datetime>
+        <ion-datetime [(ngModel)]="date" display-format="DD MMM YYYY" min="2019-11-19" max="2020-01-30" ></ion-datetime>
       </ion-item>
       <ion-item>
         <ion-label>Time</ion-label>
-        <ion-datetime display-format="hh mm A"></ion-datetime>
+        <ion-datetime [(ngModel)]="time" display-format="hh mm A"></ion-datetime>
       </ion-item>
       
 </div>
@@ -52,7 +52,7 @@
     <ion-item>
       <ion-icon name="pin" slot="start"></ion-icon>
       <ion-label>Finishing up,</ion-label>
-      <ion-button fill="outline" slot="end">Get Venmo Info!</ion-button>
+      <ion-button fill="outline" slot="end" (click)="onSubmit()">Get Venmo Info!</ion-button>
     </ion-item>
 
     <ion-card-content style="background-color: rgb(13, 184, 13); color: white; margin-top: 15px;">
